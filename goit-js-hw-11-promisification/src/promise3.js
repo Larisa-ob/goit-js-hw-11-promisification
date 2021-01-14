@@ -11,13 +11,13 @@ const makeTransaction = transaction => {
       if (canProcess) {
         resolve([transaction.id, delay]);
       } else {
-        reject([transaction.id, delay]);
+        reject(transaction.id);
       }
     }, delay);
   });
 };
-const logSuccess = id => {
-  console.log(`Transaction ${id[0]} processed in ${id[1]} ms`);
+const logSuccess = ([id, time]) => {
+  console.log(`Transaction ${id} processed in ${time} ms`);
 };
 
 const logError = id => {
@@ -32,4 +32,3 @@ makeTransaction({ id: 71, amount: 230 }).then(logSuccess).catch(logError);
 makeTransaction({ id: 72, amount: 75 }).then(logSuccess).catch(logError);
 
 makeTransaction({ id: 73, amount: 100 }).then(logSuccess).catch(logError);
-export default makeTransaction([]);

@@ -1,0 +1,229 @@
+:root{
+    --flex-container-1-height: 1200px;
+    --flex-container-2-height: 510px;
+    --livepreviwe-container-height: 110px;
+    --extexsions-container-height: 350px;
+    --sync-container-height: 900px;
+}
+
+body{
+    font-family: Arial;
+    background-color: #E8E8E8;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.hk_wrapper{
+    border: 0px dashed #4c4c4c;
+}
+.hk_title{
+    color: #323232;
+}
+.hk_subTitle{
+    color    : #323232;
+    font-size: 14px;
+}
+.flex-container-1{
+    height: var(--flex-container-1-height);
+    min-width: 1140px;
+    margin: 10px auto;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #dcdada;
+    box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;         /* Направление оси:    row | row-reverse | column | column-reverse */
+    flex-wrap: wrap;                /* Перенос элементов:  wrap | wrap-reverse */
+    justify-content: flex-start;    /* Расположение элементов внутри контейнера: flex-start | flex-end | center | space-between | space-around */
+}
+.flex-element{
+    color: #242424;
+    font-size: 14px;
+    padding: 4px;
+    padding-left: 10px;
+    margin: 0px;
+    background-color: #fff;
+    border-right: 1px solid #2E74B5;
+}
+.flex-element:nth-child(2n){
+    background-color: #EFEFEF;
+}
+.flex-element:hover{
+    background-color: #FAE5B5;
+}
+.flex-element.hk_group{
+    color: #fff;
+    background-color: #2E74B5;
+    font: bold 14px Arial;
+}
+.flex-element.hk_menu{
+    background-color: #31B762;
+}
+.hk_key{
+    /*background-color: #BABABA;*/
+    float: left;
+    width: 152px;
+    font-size: 11px;
+}
+.hk_desc{
+    /*background-color: #FDA51F;*/
+    width: 220px;
+    float: left;
+    font-size: 11px;
+}
+
+/**
+ * Формируем стили подсказки
+*/
+
+/* атрибут элемента с подсказкой */
+[data-tooltip] {
+  display:inline-block;
+  position:relative;
+ }
+/*  по умолчанию скрываем содержимое подсказки */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+/* формируем тело подсказки */
+[data-tooltip]:before {
+    background: #242424; /* фон для старых браузеров */
+    background: hsla(0, 0%, 14.1%, 0.9);
+    bottom: 100%;
+    margin-bottom: 13px;
+    color: #f6f6f6;
+    content: attr(data-tooltip);/* Часть кода, определяющая содержимое всплывающей подсказки */
+    font: normal 14px Arial;
+    left: 20px;
+    padding: 7px 10px;
+    position: absolute;/* обязательно позиционирум абсолютно */
+    text-shadow: 0 1px 1px hsla(0,0%,0%,0.5);/* тень для текста */
+    /* по желанию - скругляем углы тела подсказки */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+/* формируем указатель подсказки */
+[data-tooltip]:after {
+    border-top: 8px solid #242424;
+    border-top: 8px solid hsla(0, 0%, 14.1%, 0.9);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    bottom: 100%;
+    margin-bottom: 5px;
+    content: "";
+    height: 0;
+    width: 0;
+    left: 45px;
+    position: absolute;
+}
+/* Показываем подсказку с указателем при наведении */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  transition: all 0.4s ease-in-out; /* добавляем плавности перехода */
+}
+
+/* Стили для сочетания клавишь моих установленных расширений */
+.my-ext{
+    color: #D20101;
+}
+.my-key{
+    color: #383CFF;
+}
+
+.flex-container-2{
+    height: var(--flex-container-2-height);
+    min-width: 1140px;
+    margin: 10px auto;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #dcdada;
+    box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;         /* Направление оси:    row | row-reverse | column | column-reverse */
+    flex-wrap: wrap;                /* Перенос элементов:  wrap | wrap-reverse */
+    justify-content: flex-start;    /* Расположение элементов внутри контейнера: flex-start | flex-end | center | space-between | space-around */
+}
+.flex-element{
+    color: #242424;
+    font-size: 14px;
+    padding: 4px;
+    padding-left: 10px;
+    margin: 0px;
+    background-color: #fff;
+    border-right: 1px solid #2E74B5;
+}
+.my-ext{
+    color: #D20101;
+}
+.my-key{
+    color: #383CFF;
+}
+.livepreviwe-container{
+    height: var(--livepreviwe-container-height);
+    min-width: 1140px;
+    margin: 10px auto;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #dcdada;
+    box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.2);
+}
+.extexsions-container{
+    height: var(--extexsions-container-height);
+    min-width: 1140px;
+    margin: 10px auto;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #dcdada;
+    box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.2);
+    font: normal 14px Arial;
+}
+.ext-name{
+    float: left;
+    width: 20%;
+    height: 24px;
+}
+.ext-desc{
+    float: left;
+    width: 80%;
+    height: 24px;
+}
+.sync-container{
+    height: var(--sync-container-height);
+    min-width: 1140px;
+    margin: 10px auto;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #dcdada;
+    box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.2);
+}
+.sync-step p{
+    height: 12px;
+    font: normal 16px Arial;
+}
+.sync-set{
+    float: left;
+    width: 30%;
+    height: 24px;
+    font: normal 14px Arial;
+}
+.sync-desc{
+    float: left;
+    width: 70%;
+    height: 24px;
+    font: normal 14px Arial;
+}
